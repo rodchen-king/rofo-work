@@ -5,7 +5,8 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   return (
-    <div className="App">
+    <div class="container-fluid app">
+      asdf
     </div>
   );
 }
