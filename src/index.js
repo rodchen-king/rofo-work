@@ -1,4 +1,13 @@
+// IE polyfill
+import './polyfill';
+import 'core-js/es';
+import 'mutation-observer';
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/stable';
+
+// bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
