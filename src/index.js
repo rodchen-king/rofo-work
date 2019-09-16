@@ -1,3 +1,6 @@
+// 引入normalize.css
+import 'normalize.css';
+
 // IE polyfill
 import './polyfill';
 import 'core-js/es';
