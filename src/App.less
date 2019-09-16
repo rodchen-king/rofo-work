@@ -14,17 +14,69 @@
 .main {
   height: 100%;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 30px;
   display: flex;
 }
 
 .aside {
   width: 300px;
   height: 100%;
+  box-shadow: 10px;
+
+  &_top {
+    img {
+      display: block;
+      margin: 30px auto 20px;
+      width: 80px;
+      height: 80px;
+    }
+
+    &_name {
+      color: #0C1240;
+      font-weight: bold;
+    }
+
+    p {
+      margin-bottom: 0px;
+      text-align: center;
+
+      &:last-child {
+        color: #D9DBE2;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &_middle {
+    margin-top: 30px;
+
+    .nav {
+      padding-left: 40px;
+
+      a {
+        color: #0C1240;
+        font-weight: bold;
+
+        img {
+          vertical-align: -0.125em;            // 图片居中, middle还不能够完全居中
+        }
+
+        span {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  &_footer {
+
+  }
 }
 
 .content {
   background: #F7FBFE;
   width: calc(100% - 100px);
   height: 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
