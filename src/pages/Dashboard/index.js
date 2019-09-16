@@ -28,7 +28,9 @@ class Dashboard extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      mainCategody: {
 
+      }
     };
   }
 
@@ -75,11 +77,23 @@ class Dashboard extends PureComponent {
           </div>
         </div>
 
-        <div className="root_middle">
+        <div className={styles.root_middle}>
+          <div className={styles.root_middle_label}>
+            主要类别
+          </div>
+          <div className={styles.root_middle_content}>
 
+          </div>    
         </div>
-        <div className="root_footer">
-
+        <div className={styles.root_footer}>
+          <div class="row">
+            <div class="col-sm">
+              One of three columns
+            </div>
+            <div class="col-sm">
+              One of three columns
+            </div>
+          </div>
         </div>
       </div>
     );
