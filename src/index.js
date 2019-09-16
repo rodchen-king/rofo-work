@@ -1,6 +1,9 @@
 // 引入normalize.css
 import 'normalize.css';
 
+// 引入fontawesome
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 // IE polyfill
 import './polyfill';
 import 'core-js/es';

@@ -5,11 +5,13 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   return (
-    <div className="container-fluid app">
+    <div className="app">
       <div className="main">
-        <div className="row main-content">
-          <div className="col-3">col</div>
-          <div className="col">col</div>
+        <div className="aside">
+        <i className="fas fa-address-book"></i>
+        </div>
+        <div className="content">
+
         </div>
       </div>
     </div>
