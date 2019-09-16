@@ -10,10 +10,7 @@ import item3Icon from "@/assets/img/dashboard/item3.svg";
 import item4Icon from "@/assets/img/dashboard/item4.svg";
 
 // 引入组件
-
-function Index() {
-  return <h2>JSPang.com</h2>;
-}
+import Dashboard from '@/pages/Dashboard';
 
 function List() {
   return <h2>List-Page</h2>;
@@ -71,7 +68,7 @@ function App() {
 
           {/* 右侧主要内容 */}
           <div className="content">
-            <Route path="/" exact component={Index} />
+            <Route path="/" exact component={Dashboard} />
             <Route path="/component/" component={List} />
           </div>
           
