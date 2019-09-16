@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'; 
 
 // css & img
-import './index.less';
+import styles from './index.module.less';
 import colorLoadingIcon from '@/assets/img/common/colorloading.svg';
 import whiteLoadingIcon from '@/assets/img/common/whiteloading.svg';
 
@@ -33,12 +33,12 @@ class RButton extends React.Component {
 
   getClassName = () => {
     const { type, shape, disabled, loading } = this.props;
-    const classNamesArray = [prefixCls]
+    const classNamesArray = [`${styles[prefixCls]}`]
 
-    type && classNamesArray.push(`${prefixCls}-${type}`);
-    shape && classNamesArray.push(`${prefixCls}-${shape}`);
-    disabled && classNamesArray.push(`${prefixCls}-disabled`);
-    loading && classNamesArray.push(`${prefixCls}-loading`)
+    type && classNamesArray.push(`${styles[prefixCls + '-' + type ]}`);
+    shape && classNamesArray.push(`${styles[prefixCls + '-' + shape ]}`);
+    disabled && classNamesArray.push(`${styles[prefixCls + '-' + disabled ]}`);
+    loading && classNamesArray.push(`${styles[prefixCls + '-' + loading ]}`)
 
     return classNamesArray.join(' ');
   }
@@ -58,7 +58,7 @@ class RButton extends React.Component {
     if (disabled) {
       return (
         <button disabled className={this.getClassName()} type="button">
-          <span disabled className={`${prefixCls}_span`}>
+          <span disabled className={`${styles[prefixCls + '_span']}`}>
             {children}
           </span>
         </button>
@@ -67,12 +67,12 @@ class RButton extends React.Component {
 
     return (
       <button style={style} onClick={onClick} className={this.getClassName()} type="button">
-        <span className={`${prefixCls}_span`}>
+        <span disabled className={`${styles[prefixCls + '_span']}`}>
           <span>
           {loading && <img src={(!type || type === 'dashed') ? colorLoadingIcon : whiteLoadingIcon} className="rotation" alt="loading" />}
           </span>
           <span>
-            &nbsp; {children}
+            {loading && <span>&nbsp;</span>} {children}
           </span>
         </span>
       </button>

@@ -11,7 +11,7 @@
 import React, { PureComponent } from 'react';
 
 // css & img
-import './index.less';
+import styles from './index.module.less';
 import smallbellIcon from '@/assets/img/dashboard/smallbell.svg';
 import settingIcon from '@/assets/img/dashboard/setting.svg';
 
@@ -54,23 +54,23 @@ class Dashboard extends PureComponent {
   render() {
 
     return (
-      <div className="root">
+      <div className={styles.root}>
         {/* 搜索行内容 */}
-        <div className="root_top row">
+        <div className={`${styles.root_top} row`}>
           <div className="col-sm">
             <div className="input-group mb-3">
               <input type="text" className="form-control" placeholder="输入搜索内容" aria-label="Username" aria-describedby="basic-addon1" />
             </div>
           </div>
           <div className="col-sm">
-            <span>
-              <img src={smallbellIcon} alt="" />
+            <span className={styles.root_top_span}>
+              <img className={styles.root_top_img} src={smallbellIcon} alt="" />
             </span>
-            <span>
-              <img src={settingIcon} alt="" />
+            <span className={styles.root_top_span}>
+              <img className={styles.root_top_img} src={settingIcon} alt="" />
             </span>
-            <span>
-              <RButton>退出系统</RButton>
+            <span className={styles.root_top_span}>
+              <RButton shape="round" type="danger">退出系统</RButton>
             </span>
           </div>
         </div>
