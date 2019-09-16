@@ -1,5 +1,48 @@
 @import '~@/styles/variables';
 
 .root {
+	height: 100%;
 
+	// 覆盖bootstrap代码
+	.input-group:after {
+		position: relative;
+		height: 20px;
+		width: 20px;
+		top: 6px;
+		left: -30px;
+		display: block;
+		content: ' ';
+		z-index: 10;
+		background: url('../../assets/img/common/search.svg');
+		cursor: pointer;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.mb-3 {
+		margin-bottom: 0px !important;
+	}
+
+	&_top {
+		div:last-child {
+			text-align: right;
+		}
+
+		input {
+			border-radius: 20px;
+			padding-left: 20px; 
+			padding-right: 40px;
+			border-color: #EBEDF4;
+		}
+
+		img {
+			height: 28px;
+		}
+
+
+		span {
+			margin-left: 20px;
+			cursor: pointer;
+		}
+	}
 }

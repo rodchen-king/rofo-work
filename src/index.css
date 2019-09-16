@@ -21,3 +21,7 @@ code {
 #root {
   height: 100%;
 }
+
+input {
+  border-color: #EBEDF4;
+}
