@@ -22,6 +22,7 @@ import RButton from '@/components/RButton';
 
 
 // service & 枚举数据
+import { getData } from '@/service/dashboard'
 
 
 class Dashboard extends PureComponent {
@@ -37,6 +38,10 @@ class Dashboard extends PureComponent {
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
 
   componentDidMount() {
+    getData()
+      .then(res => {
+        debugger;
+      })
   }
 
   /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
