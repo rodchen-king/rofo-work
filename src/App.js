@@ -11,6 +11,7 @@ import item4Icon from "@/assets/img/dashboard/item4.svg";
 
 // 引入组件
 import Dashboard from '@/pages/Dashboard';
+import Share from '@/pages/Share';
 
 function List() {
   return <h2>List-Page</h2>;
@@ -42,13 +43,13 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/component/">
+                  <Link className="nav-link" to="/component">
                     <img className="rounded-circle" src={item2Icon} alt="" />
                     <span>公司组件沉淀</span>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="#/Link">
+                  <Link className="nav-link" to="/share">
                     <img className="rounded-circle" src={item3Icon} alt="" />
                     <span>知识分享</span>
                   </Link>
@@ -69,7 +70,8 @@ function App() {
           {/* 右侧主要内容 */}
           <div className="content">
             <Route path="/" exact component={Dashboard} />
-            <Route path="/component/" component={List} />
+            <Route path="/component" component={List} />
+            <Route path="/Share" component={Share} />
           </div>
           
       </Router>
