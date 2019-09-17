@@ -91,8 +91,8 @@ instance.interceptors.response.use(
 
 function isShowLoading(payload) {
 // 获取dom节点
- const loading = document.getElementById('loading');
- payload ? loading.style.display = 'block' : loading.style.display = 'none';
+//  const loading = document.getElementById('loading');
+//  payload ? loading.style.display = 'block' : loading.style.display = 'none';
 
 }
 

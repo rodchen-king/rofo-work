@@ -2,7 +2,7 @@
   "name": "rofo-work",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@babel/core": "7.5.5",
     "@fortawesome/fontawesome-free": "^5.10.2",

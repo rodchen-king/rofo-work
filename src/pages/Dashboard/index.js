@@ -91,11 +91,11 @@ class Dashboard extends PureComponent {
           </div>    
         </div>
         <div className={styles.root_footer}>
-          <div class="row">
-            <div class="col-sm">
+          <div className="row">
+            <div className="col-sm">
               One of three columns
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               One of three columns
             </div>
           </div>
