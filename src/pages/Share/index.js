@@ -15,34 +15,39 @@ import styles from './index.module.less';
 import homeIcon from '@/assets/img/share/home.svg';
 import cardIcon from '@/assets/img/share/card.svg';
 import d3Icon from '@/assets/img/share/3d.svg';
+import addIcon from '@/assets/img/share/add.svg';
 
 
 // 公共组件 & 方法
 import RButton from '@/components/RButton';
+import RModal from '@/components/RModal';
 
 // 业务组件
 
 
 // service & 枚举数据
-import { getData } from '@/service/dashboard'
-
+import { getSharesAction } from '@/service/share'
 
 class Share extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      mainCategody: {
+      modalVisible: false,
 
-      }
+      shareList: [],
     };
   }
 
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
 
   componentDidMount() {
-    getData()
+    getSharesAction()
       .then(res => {
-        debugger;
+        if (res.code === 200) {
+          this.setState({
+            shareList: res.data
+          })
+        }
       })
   }
 
@@ -56,28 +61,59 @@ class Share extends PureComponent {
 
 
   /* -------------------------------------------- Popover内容相关代码 ------------------------------------- */
-
+  onClickPopoverAddModal = () => {
+    this.setState({
+      modalVisible: true
+    })
+  }
 
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
-
+    const { shareList, modalVisible } = this.state;
+  
     return (
       <div className={styles.root}>
+        <RModal
+          title="添加分享条目"
+          visible={modalVisible}
+          onOk={() => {}}
+          onCancel={() => {
+            debugger;
+            this.setState({
+              modalVisible: false
+            });
+            console.log(modalVisible);
+        }}
+        >
+          <div>
+            sdfg
+          </div>
+        </RModal>
+        {/* top 切换内容 */}
         <div className={styles.root_switch}>
-          <span className={styles.root_switch_span}>
-            <img src={homeIcon} className={styles.root_switch_img} alt="" />
-            表格视图
+          <span>
+            <RButton shape="round" onClick={this.onClickPopoverAddModal}>
+              <img src={addIcon} className={styles.root_switch_add} alt="" />
+              添加分享
+            </RButton>
           </span>
-          <span className={styles.root_switch_span}>
-            <img src={cardIcon} className={styles.root_switch_img} alt="" />
-            内容视图
-          </span>
-          <span className={styles.root_switch_span}>
-            <img src={d3Icon} className={styles.root_switch_img} alt="" />
-            3D视图
+          <span>
+            <span className={styles.root_switch_span}>
+              <img src={homeIcon} className={styles.root_switch_img} alt="" />
+              表格视图
+            </span>
+            <span className={styles.root_switch_span}>
+              <img src={cardIcon} className={styles.root_switch_img} alt="" />
+              内容视图
+            </span>
+            <span className={styles.root_switch_span}>
+              <img src={d3Icon} className={styles.root_switch_img} alt="" />
+              3D视图
+            </span>
           </span>
         </div>
+        {/* 表格主题内容 */}
         <div className={styles.root_content}>
           <table className="table table-hover">
             <thead className="thead-light">
@@ -89,66 +125,14 @@ class Share extends PureComponent {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">7</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">8</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">9</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
-              <tr>
-                <th scope="row">10</th>
-                <td>ELK日志分析系统</td>
-                <td>张磊</td>
-                <td>2019-09-03 13:00:00</td>
-              </tr>
+              {shareList.map(item => 
+                <tr key={item.id}>
+                  <th width="50" scope="col">{item.id}</th>
+                  <th width="150" scope="col">{item.title}</th>
+                  <th width="100" scope="col">{item.author}</th>
+                  <th width="150" scope="col">{item.share_date}</th>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

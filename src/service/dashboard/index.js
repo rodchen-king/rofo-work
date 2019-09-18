@@ -5,4 +5,4 @@ import http from '../http'
  */
 
 // demo 某功能比如获取一个列表（传入你要不要展示loading的参数）
-export const getData = (params,isShow) => http.get('/users/getUserInfo?id=1',params, true);
+export const getData = (params,isShow) => http.get('/shares/getAll?id=1',params, true);

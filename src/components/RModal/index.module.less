@@ -1,0 +1,55 @@
+/* css注释不可以使用双斜杠 */
+
+.rmodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  &_content {
+    width: 800px;
+    height: 600px;
+    background: #ffffff;
+    position: absolute;
+    top: 100px;
+    left: calc((100% - 800)/2);
+    z-index: 9999;
+    border-radius: 10px;
+  }
+
+  &_title {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #F2F2F2;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  &_img {
+    height: 30px;
+    vertical-align: text-top;
+    padding: 0 20px;
+    cursor: pointer;
+  }
+
+  &_body {
+    padding: 20px;
+    height: calc(100% - 120px);
+  }
+
+  &_footer {
+    height: 60px;
+    padding-right: 20px;
+    line-height: 60px;
+    border-top: 1px solid #F2F2F2;
+    text-align: right;
+  }
+}

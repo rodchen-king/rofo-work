@@ -72,7 +72,7 @@ instance.interceptors.response.use(
 
       //  todo...
     }
-    return response;
+    return response.data;
   },
   function(error) {
     // 对响应错误做点什么

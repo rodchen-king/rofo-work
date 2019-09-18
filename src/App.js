@@ -76,6 +76,7 @@ function App() {
           
       </Router>
       </div>
+      <div id="modal-root"></div>
     </div>
   );
 }
