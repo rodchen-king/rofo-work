@@ -23,6 +23,7 @@ import RButton from '@/components/RButton';
 import RModal from '@/components/RModal';
 
 // 业务组件
+import Create from './Create';
 
 
 // service & 枚举数据
@@ -61,9 +62,9 @@ class Share extends PureComponent {
 
 
   /* -------------------------------------------- Popover内容相关代码 ------------------------------------- */
-  onClickPopoverAddModal = () => {
+  handleModalPopover = (flag) => {
     this.setState({
-      modalVisible: true
+      modalVisible: !!flag
     })
   }
 
@@ -74,26 +75,10 @@ class Share extends PureComponent {
   
     return (
       <div className={styles.root}>
-        <RModal
-          title="添加分享条目"
-          visible={modalVisible}
-          onOk={() => {}}
-          onCancel={() => {
-            debugger;
-            this.setState({
-              modalVisible: false
-            });
-            console.log(modalVisible);
-        }}
-        >
-          <div>
-            sdfg
-          </div>
-        </RModal>
         {/* top 切换内容 */}
         <div className={styles.root_switch}>
           <span>
-            <RButton shape="round" onClick={this.onClickPopoverAddModal}>
+            <RButton shape="round" onClick={this.handleModalPopover}>
               <img src={addIcon} className={styles.root_switch_add} alt="" />
               添加分享
             </RButton>
@@ -136,6 +121,13 @@ class Share extends PureComponent {
             </tbody>
           </table>
         </div>
+      
+        {/* modal内容 */}
+        <Create 
+          visible={modalVisible}
+          handleModalPopover={this.handleModalPopover}
+
+        />
       </div>
     );
   }
