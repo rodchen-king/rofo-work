@@ -25,3 +25,21 @@ code {
 input {
   border-color: #EBEDF4;
 }
+
+dt {
+  font-size: 16px;
+}
+
+dd {
+  font-size: 14px;
+}
+
+.card-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.list-group-item {
+  font-size: 16px;
+  color: #1296DB;
+}

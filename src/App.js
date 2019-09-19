@@ -4,17 +4,20 @@ import './App.less';
 
 // 引入img
 import personIcon from "@/assets/img/dashboard/person.jpg";
-import item1Icon from "@/assets/img/dashboard/item1.svg";
-import item2Icon from "@/assets/img/dashboard/item2.svg";
-import item3Icon from "@/assets/img/dashboard/item3.svg";
-import item4Icon from "@/assets/img/dashboard/item4.svg";
+import homeIcon from "@/assets/img/dashboard/home.svg";
+import noticeIcon from "@/assets/img/dashboard/notice.svg";
+import componentIcon from "@/assets/img/dashboard/component.svg";
+import shareIcon from "@/assets/img/dashboard/share.svg";
+import recordIcon from "@/assets/img/dashboard/record.svg";
 
 // 引入组件
 import Dashboard from '@/pages/Dashboard';
 import Share from '@/pages/Share';
+import Notice from '@/pages/Notice';
+import Component from '@/pages/Component/index.md';
 
 function List() {
-  return <h2>List-Page</h2>;
+  return <span>List-Page</span>;
 }
 
 
@@ -38,25 +41,31 @@ function App() {
               <ul className="nav flex-column">
                 <li className="nav-item">
                   <Link className="nav-link active" to="/">
-                    <img className="rounded-circle" src={item1Icon} alt="" />
+                    <img className="rounded-circle" src={homeIcon} alt="" />
                     <span>主页</span>
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link active" to="/notice">
+                    <img className="rounded-circle" src={noticeIcon} alt="" />
+                    <span>前端须知</span>
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/component">
-                    <img className="rounded-circle" src={item2Icon} alt="" />
+                    <img className="rounded-circle" src={componentIcon} alt="" />
                     <span>公司组件沉淀</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/share">
-                    <img className="rounded-circle" src={item3Icon} alt="" />
+                    <img className="rounded-circle" src={shareIcon} alt="" />
                     <span>知识分享</span>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="#/Disabled">
-                    <img className="rounded-circle" src={item4Icon} alt="" />
+                    <img className="rounded-circle" src={recordIcon} alt="" />
                     <span>工作记录</span>
                   </Link>
                 </li>
@@ -70,8 +79,9 @@ function App() {
           {/* 右侧主要内容 */}
           <div className="content">
             <Route path="/" exact component={Dashboard} />
-            <Route path="/component" component={List} />
-            <Route path="/Share" component={Share} />
+            <Route path="/component" component={Component} />
+            <Route path="/share" component={Share} />
+            <Route path="/notice" component={Notice} />
           </div>
           
       </Router>
