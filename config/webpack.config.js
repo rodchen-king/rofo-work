@@ -318,7 +318,6 @@ module.exports = function(webpackEnv) {
       rules: [
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
-
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
         {
@@ -418,6 +417,11 @@ module.exports = function(webpackEnv) {
             // to a file, but in development "style" loader enables hot editing
             // of CSS.
             // By default we support CSS Modules with the extension .module.css
+            {
+              test: /\.md$/,
+              // use: "raw-loader"
+              use: 'raw-loader',
+            },
             {
               test: cssRegex,
               exclude: cssModuleRegex,

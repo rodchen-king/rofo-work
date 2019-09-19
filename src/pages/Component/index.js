@@ -19,12 +19,10 @@ import styles from './index.module.less';
 // 公共组件 & 方法
 
 // 业务组件
-import AppMarkdown from './index.md';
+import md from './index.md';
 
 // service & 枚举数据
 
-const md = '### 基本用法 \n ```\n<template>\n  <vue-calendar :week-label-index="0" />\n</template>\n```\n\n' + 
-'\n### 方法参数 \n ```\n<template>\n  <vue-calendar :week-label-index="0" />\n</template>\n```';
 
 class Notice extends PureComponent {
   constructor(props) {
@@ -36,11 +34,6 @@ class Notice extends PureComponent {
   }
 
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
-
-  componentDidMount() {
-    http.get(AppMarkdown)
-    .then(text => this.setState({markdown: text}));
-  }
 
   /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
 
@@ -57,13 +50,11 @@ class Notice extends PureComponent {
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
-    const { markdown } = this.state;
-
     return (
       <div className={styles.root}>
         <ReactMarkdown
           className="markdown-body"
-          source={markdown}
+          source={md}
           escapeHtml={false}
           renderers={{
             code: CodeBlock,
