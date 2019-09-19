@@ -9,39 +9,38 @@
  */
 
 import React, { PureComponent } from 'react';
+import http from '@/service/http'
+import ReactMarkdown from 'react-markdown';
+import CodeBlock from './codeBlock';
 
 // css & img
 import styles from './index.module.less';
-import introductionIcon from '@/assets/img/notice/introduction.svg';
-import frameworkIcon from '@/assets/img/notice/framework.svg';
-import tranningIcon from '@/assets/img/notice/tranning.svg';
-import jsIcon from '@/assets/img/notice/js.svg';
-import commitIcon from '@/assets/img/notice/commit.svg';
-import planIcon from '@/assets/img/notice/plan.svg';
-import productionsIcon from '@/assets/img/notice/productions.png';
-import processIcon from '@/assets/img/notice/process.bmp';
 
 // 公共组件 & 方法
-import RButton from '@/components/RButton';
 
 // 业务组件
+import AppMarkdown from './index.md';
 
 // service & 枚举数据
 
+const md = '### 基本用法 \n ```\n<template>\n  <vue-calendar :week-label-index="0" />\n</template>\n```\n\n' + 
+'\n### 方法参数 \n ```\n<template>\n  <vue-calendar :week-label-index="0" />\n</template>\n```';
 
 class Notice extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      mainCategody: {
-
-      }
+      markdown: ''
     };
+
   }
 
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
 
-  componentDidMount() {}
+  componentDidMount() {
+    http.get(AppMarkdown)
+    .then(text => this.setState({markdown: text}));
+  }
 
   /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
 
@@ -58,10 +57,18 @@ class Notice extends PureComponent {
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
+    const { markdown } = this.state;
 
     return (
       <div className={styles.root}>
-
+        <ReactMarkdown
+          className="markdown-body"
+          source={markdown}
+          escapeHtml={false}
+          renderers={{
+            code: CodeBlock,
+          }}
+        />
       </div>
     );
   }

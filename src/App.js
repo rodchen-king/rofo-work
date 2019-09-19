@@ -14,7 +14,7 @@ import recordIcon from "@/assets/img/dashboard/record.svg";
 import Dashboard from '@/pages/Dashboard';
 import Share from '@/pages/Share';
 import Notice from '@/pages/Notice';
-import Component from '@/pages/Component/index.md';
+import Component from '@/pages/Component';
 
 function List() {
   return <span>List-Page</span>;

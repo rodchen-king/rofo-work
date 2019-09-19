@@ -1,32 +1,106 @@
-### 基本用法
+<p align="center">
+  <a href="https://github.com/uiwjs/react-markdown-editor/issues">
+    <img src="https://img.shields.io/github/issues/uiwjs/react-markdown-editor.svg">
+  </a>
+  <a href="https://github.com/uiwjs/react-markdown-editor/network">
+    <img src="https://img.shields.io/github/forks/uiwjs/react-markdown-editor.svg">
+  </a>
+  <a href="https://github.com/uiwjs/react-markdown-editor/stargazers">
+    <img src="https://img.shields.io/github/stars/uiwjs/react-markdown-editor.svg">
+  </a>
+  <a href="https://github.com/uiwjs/react-markdown-editor/releases">
+    <img src="https://img.shields.io/github/release/uiwjs/react-markdown-editor.svg">
+  </a>
+  <a href="https://www.npmjs.com/package/@uiw/react-markdown-editor">
+    <img src="https://img.shields.io/npm/v/@uiw/react-markdown-editor.svg">
+  </a>
+</p>
 
-日历基本使用。
+<p align="center">
+  A markdown editor with preview, implemented with React.js and TypeScript.
+</p>
 
-:::demo
-```html
-<template>
-  <vue-calendar />
-</template>
+## Install
+
+```bash
+npm i @uiw/react-markdown-editor
 ```
-:::
 
+## Document
 
-日历以周日开始第一天。
-:::demo
-```html
-<template>
-  <vue-calendar :week-label-index="0" />
-</template>
+Official document [demo preview](https://uiwjs.github.io/react-markdown-editor/) ([🇨🇳中国镜像网站](http://uiw.gitee.io/react-markdown-editor/))
+
+## Basic Usage
+
+```jsx
+import MarkdownEditor from '@uiw/react-markdown-editor';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Dome = () => (
+  <MarkdownEditor
+    value={this.state.markdown}
+    onChange={this.updateMarkdown}
+  />
+);
 ```
 
-:::
+controlled usage
 
-### Attributes
-| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
-|---------- |-------------- |---------- |--------------------------------  |-------- |
-| week-label-index     | 日历是否从周一开始          | string | 0（周日）/1（周一）/2（周二）/3（周三）/4（周四）/5（周五）/6（周六） | 1 |
+```jsx
+import MarkdownEditor from '@uiw/react-markdown-editor';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-### Events
-| 事件名称 | 说明 | 回调参数 |
-|---------- |-------- |---------- |
-| dayClick | 点击日历事件 | — |
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      markdown: '# This is a H1  \n## This is a H2  \n###### This is a H6',
+    };
+    this.updateMarkdown = this.updateMarkdown.bind(this);
+  }
+
+  updateMarkdown(editor, data, value) {
+    this.setState({ markdown: value });
+  }
+
+  render() {
+    return (
+      <MarkdownEditor
+        value={this.state.markdown}
+        onChange={this.updateMarkdown}
+      />
+    );
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
+```
+
+## Props
+
+- value (*string*) - the raw markdown that will be converted to html (**required**)
+- `visble?:boolean` - Shows a preview that will be converted to html.
+- `toolbars?:array` - Tool display settings.
+- `toolbarsMode?:array` - Tool display settings.
+- onChange (*function(editor: IInstance, data: CodeMirror.EditorChange, value: string)*) - called when a change is made (**required**)
+
+> [Other Props Options](https://github.com/uiwjs/react-markdown-editor/blob/8de6abbf628b6d272d7da1c28e985fbbcba71b93/src/components/CodeMirror/index.tsx#L21-L60)
+
+
+### Development
+
+```bash
+npm run dev
+npm run type-check:watch
+npm run doc
+```
+
+## License
+
+[MIT © Kenny Wong](./LICENSE)
