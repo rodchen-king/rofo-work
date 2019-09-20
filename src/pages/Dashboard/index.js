@@ -146,7 +146,7 @@ class Dashboard extends PureComponent {
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
-                    <a rel="noopener noreferrer" target="_blank" href="https://pro.ant.design/docs/getting-started-cn">ant design pro (react + ant design + dva)官方文档</a> <br /> 
+                    <a rel="noopener noreferrer" target="_blank" href="https://v2-preview-ant-design-pro.netlify.com/">ant design pro (react + ant design + dva)官方文档</a> <br /> 
                   </li>
                   <li class="list-group-item">
                     <a rel="noopener noreferrer" target="_blank" href="https://ant.design/docs/react/getting-started-cn">ant design官方文档</a> <br /> 
