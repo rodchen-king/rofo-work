@@ -184,38 +184,3 @@ export function gethttpmethodbackground(httpMethod) {
 
   return httpMethodColor;
 }
-
-/**
- * 遍历对象获取所有属性创建新的数组（{key: ''}）
- * @param {*} Object 
- */
-export function ergodicObjectToArray(Object) {
-  const propsArray = Object.keys(object);
-  const returnArray = [];
-
-  if (!propsArray.length) {
-    throw new Error('传入的参数无可枚举属性');
-  }
-
-  propsArray.forEach(propsItem => {
-    returnArray.push({[propsItem]: ''})
-  })
-
-  return returnArray;
-}
-
-/**
- * 获取能力域层级
- */
-export function getCapabilityDomainLevel() {
-  const userInfo = JSON.parse(localStorage.getItem('userInfo')).sysUserResDto;
-  return userInfo.dictList.filter(item => item.code === '1')[0];
-};
-
-/**
- * 获取应用层级
- */
-export function getAppDomainLevel() {
-  const userInfo = JSON.parse(localStorage.getItem('userInfo')).sysUserResDto;
-  return userInfo.dictList.filter(item => item.code === '2')[0];
-};

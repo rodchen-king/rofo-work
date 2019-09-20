@@ -21,6 +21,7 @@ npm start
 │   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # 本地静态资源
+│   ├── common               # 通用方法和枚举数据
 │   ├── components           # 业务通用组件
 │   ├── e2e                  # 集成测试用例
 │   ├── layouts              # 通用布局
