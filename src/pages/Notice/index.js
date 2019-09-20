@@ -109,7 +109,6 @@ class Notice extends PureComponent {
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">业务运营平台代码：<a rel="noopener noreferrer" target="_blank" href="http://47.102.40.227/halo-group/halo-frontend">http://47.102.40.227/halo-group/halo-frontend</a></li>
-                <li class="list-group-item">绿叶运营平台代码：<a rel="noopener noreferrer" target="_blank" href="http://58.210.185.230:4379/lyzt/taihuweb_yunying">http://58.210.185.230:4379/lyzt/taihuweb_yunying</a></li>
               </ul>
             </div>
             <div class="card">
@@ -134,7 +133,6 @@ class Notice extends PureComponent {
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a rel="noopener noreferrer" target="_blank" href="/component">熟悉 业务运营平台代码 代码逻辑</a></li>
-                <li class="list-group-item">熟悉 绿叶运营平台代码 代码逻辑</li>
                 <li class="list-group-item"><span style={{color: 'red'}}>业务运营平台代码 实现商品中心的所有列表数据代码完成 【陈子龙讲解】</span></li>
               </ul>
             </div>
@@ -221,6 +219,17 @@ class Notice extends PureComponent {
                 </li>
                 <li class="list-group-item">
                   c. props需要进行验证，变量值props需要添加默认初始值。
+                </li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                5. vs插件检查代码 （会进行代码检测）
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  vscode安装ESLint，写代码的同时可以检测当前文件是否符合提交规范，其中任何报错的地方都需要修改。
                 </li>
               </ul>
             </div>

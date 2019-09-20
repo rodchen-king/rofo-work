@@ -22,8 +22,24 @@
 
 		.mb-3 {
 			margin-bottom: 0px !important;
-		}
-	}
+    }
+
+    .card-text {
+      & > a {
+        cursor: pointer;
+        transition: all 2s;
+      }
+      
+      & > a:hover {
+        font-weight: bold;
+        color: red;
+      }
+    }
+
+    .card {
+      box-shadow: 5px 5px 5px 5px #ccc;
+    }
+  }
 
 	&_top {
 		div:last-child {
@@ -50,9 +66,16 @@
 	}
 
 	&_middle {
-    height: 250px;
-		margin-top: 30px;
-
+    margin-top: 30px;
+    
+		&_label {
+			font-weight: bold;
+		}
+  }
+  
+  &_footer {
+    margin-top: 30px;
+    
 		&_label {
 			font-weight: bold;
 		}
