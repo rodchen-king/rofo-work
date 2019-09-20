@@ -50,7 +50,7 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/component">
                     <img className="rounded-circle" src={componentIcon} alt="" />
-                    <span>公司组件沉淀</span>
+                    <span>业务运营平台开发</span>
                   </Link>
                 </li>
                 <li className="nav-item">

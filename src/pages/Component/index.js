@@ -9,13 +9,12 @@
  */
 
 import React, { PureComponent } from 'react';
-import ReactMarkdown from 'react-markdown';
-import CodeBlock from './codeBlock';
 
 // css & img
 import styles from './index.module.less';
 
 // 公共组件 & 方法
+import RMarkdown from '@/components/RMarkdown';
 
 // 业务组件
 import md from './index.md';
@@ -23,13 +22,10 @@ import md from './index.md';
 // service & 枚举数据
 
 
-class Notice extends PureComponent {
+class Component extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      markdown: ''
-    };
-
+    this.state = {};
   }
 
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
@@ -51,17 +47,10 @@ class Notice extends PureComponent {
   render() {
     return (
       <div className={styles.root}>
-        <ReactMarkdown
-          className="markdown-body"
-          source={md}
-          escapeHtml={false}
-          renderers={{
-            code: CodeBlock,
-          }}
-        />
+        <RMarkdown source={md} />
       </div>
     );
   }
 }
 
-export default Notice;
+export default Component;
