@@ -16,10 +16,6 @@ import Share from '@/pages/Share';
 import Notice from '@/pages/Notice';
 import Component from '@/pages/Component';
 
-function List() {
-  return <span>List-Page</span>;
-}
-
 
 function App() {
   return (

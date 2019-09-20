@@ -22,7 +22,6 @@ import productionsIcon from '@/assets/img/notice/productions.png';
 import processIcon from '@/assets/img/notice/process.bmp';
 
 // 公共组件 & 方法
-import RButton from '@/components/RButton';
 
 // 业务组件
 
@@ -107,8 +106,8 @@ class Notice extends PureComponent {
                 1. 熟悉主要业务线 【 陈子龙介绍 】
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">业务运营平台代码：<a target="_blank" href="http://47.102.40.227/halo-group/halo-frontend">http://47.102.40.227/halo-group/halo-frontend</a></li>
-                <li class="list-group-item">绿叶运营平台代码：<a target="_blank" href="http://58.210.185.230:4379/lyzt/taihuweb_yunying">http://58.210.185.230:4379/lyzt/taihuweb_yunying</a></li>
+                <li class="list-group-item">业务运营平台代码：<a rel="noopener noreferrer" target="_blank" href="http://47.102.40.227/halo-group/halo-frontend">http://47.102.40.227/halo-group/halo-frontend</a></li>
+                <li class="list-group-item">绿叶运营平台代码：<a rel="noopener noreferrer" target="_blank" href="http://58.210.185.230:4379/lyzt/taihuweb_yunying">http://58.210.185.230:4379/lyzt/taihuweb_yunying</a></li>
               </ul>
             </div>
             <div class="card">

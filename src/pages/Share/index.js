@@ -20,7 +20,6 @@ import addIcon from '@/assets/img/share/add.svg';
 
 // 公共组件 & 方法
 import RButton from '@/components/RButton';
-import RModal from '@/components/RModal';
 
 // 业务组件
 import Create from './Create';

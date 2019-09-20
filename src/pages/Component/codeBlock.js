@@ -2,9 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 // 设置高亮样式
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ghcolors } from "react-syntax-highlighter/dist/esm/styles/prism";
 // 设置高亮的语言
-import { jsx, javascript, sass, scss } from "react-syntax-highlighter/dist/esm/languages/prism";
+import { bash, jsx, javascript } from "react-syntax-highlighter/dist/esm/languages/prism";
 
 class CodeBlock extends PureComponent {
   static propTypes = {
@@ -20,6 +20,7 @@ class CodeBlock extends PureComponent {
     // 注册要高亮的语法，
     // 注意：如果不设置打包后供第三方使用是不起作用的
     SyntaxHighlighter.registerLanguage("jsx", jsx);
+    SyntaxHighlighter.registerLanguage("bash", bash);
     SyntaxHighlighter.registerLanguage("javascript", javascript);
   }
 
@@ -27,7 +28,7 @@ class CodeBlock extends PureComponent {
     const { language, value } = this.props;
     return (
       <figure className="highlight">
-        <SyntaxHighlighter language={language} style={dark}>
+        <SyntaxHighlighter language={language} style={ghcolors}>
           {value}
         </SyntaxHighlighter>
       </figure>

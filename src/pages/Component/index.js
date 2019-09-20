@@ -9,7 +9,6 @@
  */
 
 import React, { PureComponent } from 'react';
-import http from '@/service/http'
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './codeBlock';
 

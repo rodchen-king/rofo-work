@@ -1,106 +1,156 @@
-<p align="center">
-  <a href="https://github.com/uiwjs/react-markdown-editor/issues">
-    <img src="https://img.shields.io/github/issues/uiwjs/react-markdown-editor.svg">
-  </a>
-  <a href="https://github.com/uiwjs/react-markdown-editor/network">
-    <img src="https://img.shields.io/github/forks/uiwjs/react-markdown-editor.svg">
-  </a>
-  <a href="https://github.com/uiwjs/react-markdown-editor/stargazers">
-    <img src="https://img.shields.io/github/stars/uiwjs/react-markdown-editor.svg">
-  </a>
-  <a href="https://github.com/uiwjs/react-markdown-editor/releases">
-    <img src="https://img.shields.io/github/release/uiwjs/react-markdown-editor.svg">
-  </a>
-  <a href="https://www.npmjs.com/package/@uiw/react-markdown-editor">
-    <img src="https://img.shields.io/npm/v/@uiw/react-markdown-editor.svg">
-  </a>
-</p>
+<h2 align="center">
+  业务运营平台开发
+</h2>
 
-<p align="center">
-  A markdown editor with preview, implemented with React.js and TypeScript.
-</p>
-
-## Install
+<h3 style="color: #1296DB">Install</h3>
 
 ```bash
-npm i @uiw/react-markdown-editor
+git clone ssh://git@47.102.40.227:23/halo-group/halo-frontend.git    // 安装业务运营平台开发代码
+cd halo-frontend
+npm install
+npm start
 ```
 
-## Document
+<br />
+<h4 style="color: #1296DB;font-weight: bold">代码目录介绍</h4>
 
-Official document [demo preview](https://uiwjs.github.io/react-markdown-editor/) ([🇨🇳中国镜像网站](http://uiw.gitee.io/react-markdown-editor/))
-
-## Basic Usage
-
-```jsx
-import MarkdownEditor from '@uiw/react-markdown-editor';
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-const Dome = () => (
-  <MarkdownEditor
-    value={this.state.markdown}
-    onChange={this.updateMarkdown}
-  />
-);
+```
+├── config                   # umi 配置，包含路由，构建等配置
+├── mock                     # 本地模拟数据
+├── public
+│   └── favicon.png          # Favicon
+├── src
+│   ├── assets               # 本地静态资源
+│   ├── components           # 业务通用组件
+│   ├── e2e                  # 集成测试用例
+│   ├── layouts              # 通用布局
+│   ├── models               # 全局 dva model
+│   ├── pages                # 业务页面入口和常用模板
+│   ├── services             # 后台接口服务
+│   ├── utils                # 工具库
+│   ├── locales              # 国际化资源
+│   ├── global.less          # 全局样式
+│   └── global.ts            # 全局 JS
+├── tests                    # 测试工具
+├── README.md
+└── package.json
 ```
 
-controlled usage
+<br />
+<h4 style="color: #1296DB;font-weight: bold">组件代码基本格式</h4>
 
 ```jsx
-import MarkdownEditor from '@uiw/react-markdown-editor';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'dva';
+import { formatMessage, FormattedMessage } from 'umi/locale';
+import router from 'umi/router';
+import {
+  Row,
+  Col,
+  Card
+} from 'antd';
+import { handelAuth } from '@/utils/utils';
+
+// css & img
+
+// 公共组件 & 方法
+
+// 业务组件
+
+// service & 枚举数据
 
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      markdown: '# This is a H1  \n## This is a H2  \n###### This is a H6',
-    };
-    this.updateMarkdown = this.updateMarkdown.bind(this);
-  }
+@Form.create()
+@connect(({ loading, DemoDva }) => ({
+  DemoDva,
+  loading: loading.models.commoditylist,
+}))
+@Form.create()
+class Demo extends PureComponent {
+  state = {
+  };
 
-  updateMarkdown(editor, data, value) {
-    this.setState({ markdown: value });
-  }
+  /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
+
+  /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
+
+  /* -------------------------------------------- Popover内容相关代码 ------------------------------------- */
+
+  /* -------------------------------------------- 页面操作方法 -------------------------------------------- */
+
+  /* -------------------------------------------- 纯函数组件 ---------------------------------------------- */
+
+  /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
     return (
-      <MarkdownEditor
-        value={this.state.markdown}
-        onChange={this.updateMarkdown}
-      />
+      <div>
+        Demo
+      </div>
     );
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+export default Demo;
+
 ```
 
-## Props
+<br />
 
-- value (*string*) - the raw markdown that will be converted to html (**required**)
-- `visble?:boolean` - Shows a preview that will be converted to html.
-- `toolbars?:array` - Tool display settings.
-- `toolbarsMode?:array` - Tool display settings.
-- onChange (*function(editor: IInstance, data: CodeMirror.EditorChange, value: string)*) - called when a change is made (**required**)
+<h4 style="color: #1296DB;font-weight: bold">公共组件表格使用</h4>
 
-> [Other Props Options](https://github.com/uiwjs/react-markdown-editor/blob/8de6abbf628b6d272d7da1c28e985fbbcba71b93/src/components/CodeMirror/index.tsx#L21-L60)
+```jsx
+import React, { PureComponent, Fragment } from 'react';
+import { connect } from 'dva';
+import { formatMessage, FormattedMessage } from 'umi/locale';
+import router from 'umi/router';
+import {
+  Row,
+  Col,
+  Card
+} from 'antd';
+import { handelAuth } from '@/utils/utils';
+
+// css & img
+
+// 公共组件 & 方法
+
+// 业务组件
+
+// service & 枚举数据
 
 
-### Development
+@Form.create()
+@connect(({ loading, DemoDva }) => ({
+  DemoDva,
+  loading: loading.models.commoditylist,
+}))
+@Form.create()
+class Demo extends PureComponent {
+  state = {
+  };
 
-```bash
-npm run dev
-npm run type-check:watch
-npm run doc
+  /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
+
+  /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
+
+  /* -------------------------------------------- Popover内容相关代码 ------------------------------------- */
+
+  /* -------------------------------------------- 页面操作方法 -------------------------------------------- */
+
+  /* -------------------------------------------- 纯函数组件 ---------------------------------------------- */
+
+  /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
+
+  render() {
+    return (
+      <div>
+        Demo
+      </div>
+    );
+  }
+}
+
+export default Demo;
+
 ```
-
-## License
-
-[MIT © Kenny Wong](./LICENSE)
