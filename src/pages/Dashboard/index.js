@@ -19,6 +19,9 @@ import frontendIcon from '@/assets/img/dashboard/1.webp';
 import platformIcon from '@/assets/img/dashboard/2.webp';
 import shareIcon from '@/assets/img/dashboard/3.webp';
 import recordIcon from '@/assets/img/dashboard/4.webp';
+import componetsIcon from '@/assets/img/dashboard/1.jpg';
+import i2Icon from '@/assets/img/dashboard/2.jpg';
+
 
 
 
@@ -85,7 +88,7 @@ class Dashboard extends PureComponent {
 
         <div className={styles.root_middle}>
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="card shadow">
                 <img src={frontendIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -97,19 +100,31 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="card shadow">
                 <img src={platformIcon} className="card-img-top" alt="" />
                 <div class="card-body">
                   <p class="card-text">
-                    <Link className="nav-link active" to="/component">
+                    <Link className="nav-link active" to="/soft">
                       <span>业务运营平台开发</span>
                     </Link>
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
+              <div class="card shadow">
+                <img src={recordIcon} className="card-img-top" alt="" />
+                <div class="card-body">
+                  <p class="card-text">
+                    <Link className="nav-link active" to="/component">
+                      <span>组件说明</span>
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
               <div class="card shadow">
                 <img src={shareIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -121,13 +136,25 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="card shadow">
-                <img src={recordIcon} className="card-img-top" alt="" />
+                <img src={componetsIcon} className="card-img-top" alt="" />
                 <div class="card-body">
                   <p class="card-text">
                     <Link className="nav-link active" to="/">
                       <span>工作记录</span>
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="card shadow">
+                <img src={i2Icon} className="card-img-top" alt="" />
+                <div class="card-body">
+                  <p class="card-text">
+                    <Link className="nav-link active" to="/">
+                      <span>待补充</span>
                     </Link>
                   </p>
                 </div>
