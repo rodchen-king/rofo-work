@@ -76,6 +76,8 @@ const { ACCOUNT_STATUS } = ENUMERATIONDATA;
 
   // 页面跳转方法【navigate***page开头】 navigateHomePage
 
+  // 组件的处理函数【handle***开头】 handleMenuClick
+
   // 页面中需要方法支持的数据获取【动词开头，视情况而定】 getSelectKeysArray
 
   /* -------------------------------------------- 纯函数组件 ---------------------------------------------- */

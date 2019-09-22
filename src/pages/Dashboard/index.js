@@ -27,9 +27,7 @@ import RButton from '@/components/RButton';
 
 // 业务组件
 
-
 // service & 枚举数据
-import { getData } from '@/service/dashboard'
 
 
 class Dashboard extends PureComponent {

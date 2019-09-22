@@ -7,6 +7,7 @@ import personIcon from "@/assets/img/dashboard/person.jpg";
 import homeIcon from "@/assets/img/dashboard/home.svg";
 import noticeIcon from "@/assets/img/dashboard/notice.svg";
 import componentIcon from "@/assets/img/dashboard/component.svg";
+import softIcon from "@/assets/img/dashboard/soft.svg";
 import shareIcon from "@/assets/img/dashboard/share.svg";
 import recordIcon from "@/assets/img/dashboard/record.svg";
 
@@ -15,6 +16,7 @@ import Dashboard from '@/pages/Dashboard';
 import Share from '@/pages/Share';
 import Notice from '@/pages/Notice';
 import Component from '@/pages/Component';
+import Soft from '@/pages/Soft';
 
 
 function App() {
@@ -48,9 +50,15 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/soft">
+                    <img className="rounded-circle" src={softIcon} alt="" />
+                    <span>业务运营平台开发</span>
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/component">
                     <img className="rounded-circle" src={componentIcon} alt="" />
-                    <span>业务运营平台开发</span>
+                    <span>组件说明</span>
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -75,6 +83,7 @@ function App() {
           {/* 右侧主要内容 */}
           <div className="content">
             <Route path="/" exact component={Dashboard} />
+            <Route path="/soft" component={Soft} />
             <Route path="/component" component={Component} />
             <Route path="/share" component={Share} />
             <Route path="/notice" component={Notice} />
