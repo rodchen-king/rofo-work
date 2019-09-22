@@ -88,7 +88,7 @@ class Dashboard extends PureComponent {
 
         <div className={styles.root_middle}>
           <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm">
               <div class="card shadow">
                 <img src={frontendIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -100,7 +100,7 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
               <div class="card shadow">
                 <img src={platformIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -112,7 +112,7 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm">
               <div class="card shadow">
                 <img src={recordIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -124,7 +124,7 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm">
               <div class="card shadow">
                 <img src={shareIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -136,7 +136,7 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm">
               <div class="card shadow">
                 <img src={componetsIcon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -148,7 +148,7 @@ class Dashboard extends PureComponent {
                 </div>
               </div>
             </div>
-            <div class="col-sm-2">
+            {/* <div class="col-sm">
               <div class="card shadow">
                 <img src={i2Icon} className="card-img-top" alt="" />
                 <div class="card-body">
@@ -159,7 +159,7 @@ class Dashboard extends PureComponent {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.root_footer}>
