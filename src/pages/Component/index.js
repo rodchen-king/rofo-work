@@ -12,12 +12,13 @@ import React, { PureComponent } from 'react';
 
 // css & img
 import styles from './index.module.less';
+import expandIcon from '@/assets/img/components/expand.svg';
+import closeIcon from '@/assets/img/components/close.svg';
 
 // 公共组件 & 方法
 import RMarkdown from '@/components/RMarkdown';
 
 // 业务组件
-import md from './index.md';
 
 // service & 枚举数据
 
@@ -25,7 +26,10 @@ import md from './index.md';
 class Component extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      activeItem: 'ShowTable',
+      isExpand: false
+    };
   }
 
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
@@ -45,9 +49,73 @@ class Component extends PureComponent {
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
+    const { isExpand, activeItem } = this.state;
+
+    let mdFile = require(`./${activeItem}.md`).default;
+
     return (
       <div className={styles.root}>
-        <RMarkdown source={md} />
+        <div className={`${styles.root_header} ${!isExpand ? styles.root_header_hidden : ''}`}>
+          <div className={`card ${!isExpand ? styles.card_hidden : ''}`}>
+            <div class="card-header">
+              组件开发
+            </div>
+            <div class="list-group">
+              <button 
+                className={`list-group-item list-group-item-action ${activeItem === 'ShowTable' ? 'active' : ''}`}
+                onClick={() => {
+                  this.setState({
+                    activeItem: 'ShowTable'
+                  })
+                }}
+                type="button"
+              >
+                ShowTable
+              </button>
+            </div>
+          </div>
+          <br />
+          <div className={`card ${!isExpand ? styles.card_hidden : ''}`}>
+            <div class="card-header">
+              系统说明
+            </div>
+            <div class="list-group">
+              <button
+                type="button"
+                onClick={() => {
+                  this.setState({
+                    activeItem: 'modal'
+                  })
+                }}
+                className={`list-group-item list-group-item-action ${activeItem === 'modal' ? 'active' : ''}`}
+              >
+                modal
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  this.setState({
+                    activeItem: 'service'
+                  })
+                }}
+                className={`list-group-item list-group-item-action ${activeItem === 'service' ? 'active' : ''}`}
+              >
+                service
+              </button>
+            </div>
+          </div>
+        </div>
+        <img
+          className={styles.toggle}
+          onClick={() => {
+            this.setState({
+              isExpand: !isExpand
+            })
+          }}
+          src={isExpand ? closeIcon : expandIcon}
+          alt=""
+        />
+        <RMarkdown source={mdFile} />
       </div>
     );
   }

@@ -20,7 +20,6 @@ import platformIcon from '@/assets/img/dashboard/2.webp';
 import shareIcon from '@/assets/img/dashboard/3.webp';
 import recordIcon from '@/assets/img/dashboard/4.webp';
 import componetsIcon from '@/assets/img/dashboard/1.jpg';
-import i2Icon from '@/assets/img/dashboard/2.jpg';
 
 
 

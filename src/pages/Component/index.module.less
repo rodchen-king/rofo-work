@@ -1,7 +1,46 @@
 @import '~@/styles/variables';
 
 .root {
+  position: relative;
   height: 100%;
-  
-  
+
+  :global {
+    .card {
+      transition: all 1.5s;
+    }
+  }
+
+  &_header {
+    position: absolute;
+    top: -30px;
+    left: -330px;
+    background: #ffffff;
+    height: calc(100% + 60px);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    width: 300px;
+    transition: all 2s;
+
+    &_tip {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+
+  .card_hidden {
+    visibility: hidden;
+  }
+
+  &_header_hidden {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    height: 0;
+  }
+}
+
+.toggle {
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
 }
