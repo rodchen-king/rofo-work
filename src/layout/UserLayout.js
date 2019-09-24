@@ -8,7 +8,7 @@ function UserLayout(props) {
 
   return (
     <div className="app">
-      <div className="main">
+      <div className="main-user">
         <Router>
           {normarlRouters.map(router => <Route key={router.path} path={router.path} exact component={router.component} />)}
           {redirectRouters.map(router => <Redirect from={router.path} to={router.redirect} />)}

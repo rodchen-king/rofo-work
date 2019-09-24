@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
+
 // css & img
+import styles from './index.module.less';
+import logoIcon from '@/assets/img/logo.png';
 
 // 公共组件 & 方法
 
@@ -17,8 +20,14 @@ class Login extends PureComponent {
   render() {
 
     return (
-      <div>
-        login
+      <div className={styles.root}>
+        <div class="row">
+          <div class="col-sm">
+            <img src={logoIcon} alt="" />
+          </div>
+          <div class="col-sm">
+          </div>
+        </div>
       </div>
     );
   }
