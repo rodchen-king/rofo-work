@@ -5,6 +5,9 @@ import softIcon from "@/assets/img/dashboard/soft.svg";
 import shareIcon from "@/assets/img/dashboard/share.svg";
 import recordIcon from "@/assets/img/dashboard/record.svg";
 
+// 引入登陆组件
+import Login from '@/pages/Login/Login';
+
 // 引入组件
 import Dashboard from '@/pages/Dashboard';
 import Share from '@/pages/Share';
@@ -19,9 +22,7 @@ export default [
       component: './layouts/UserLayout',
       routes: [
         { path: '/user', redirect: '/user/login' },
-        { path: '/user/login', component: './User/Login' },
-        { path: '/user/register', component: './User/Register' },
-        { path: '/user/register-result', component: './User/RegisterResult' },
+        { path: '/user/login', component: Login },
       ],
     },
     // app
