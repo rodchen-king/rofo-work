@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button } from 'antd';
+import { Form, Input } from 'antd';
 
 // css & img
 import styles from './index.module.less';
@@ -11,7 +11,9 @@ import logoIcon from '@/assets/img/logo.png';
 
 // service & 枚举数据
 
+const FormItem = Form.Item;
 
+@Form.create()
 class Login extends PureComponent {
   constructor(props) {
     super(props);
@@ -19,6 +21,7 @@ class Login extends PureComponent {
     };
   }
   render() {
+    const { form } = this.props;
 
     return (
       <div className={styles.root}>
@@ -27,7 +30,30 @@ class Login extends PureComponent {
             <img src={logoIcon} alt="" />
           </div>
           <div class="col-sm">
-          <Button type="primary">Button</Button>       
+          <Form hideRequiredMark style={{ textAlign: 'left' }}>
+
+            {/* 用户名 */}
+            <FormItem
+              layout="inline"
+              label="用户名"
+            >
+              {form.getFieldDecorator('username', {
+                rules: [
+                  { required: true},
+                  {
+                    max: 50,
+                    message: '最大不超过50',
+                  },
+                ],
+                validateTrigger: 'onBlur',
+              })(
+                <Input
+                  autocomplete="off"
+                  placeholder="用户名"
+                />
+              )}
+            </FormItem>
+          </Form>
           </div>
         </div>
       </div>
