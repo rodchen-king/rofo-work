@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Button } from 'antd';
 
 // css & img
 import styles from './index.module.less';
@@ -26,6 +27,7 @@ class Login extends PureComponent {
             <img src={logoIcon} alt="" />
           </div>
           <div class="col-sm">
+          <Button type="primary">Button</Button>       
           </div>
         </div>
       </div>
