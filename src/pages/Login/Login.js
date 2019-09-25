@@ -6,10 +6,12 @@ import styles from './index.module.less';
 import logoIcon from '@/assets/img/logo.png';
 
 // 公共组件 & 方法
+import RButton from '@/components/RButton';
 
 // 业务组件
 
 // service & 枚举数据
+import { loginAction } from '@/service/login';
 
 const FormItem = Form.Item;
 
@@ -20,6 +22,17 @@ class Login extends PureComponent {
     this.state = {
     };
   }
+
+  submit = () => {
+    const { form, handleAdd } = this.props;
+
+    form.validateFields((err, fieldsValue) => {
+      if (err) return;
+
+      loginAction(fieldsValue)
+    });
+  }
+
   render() {
     const { form } = this.props;
 
@@ -30,30 +43,54 @@ class Login extends PureComponent {
             <img src={logoIcon} alt="" />
           </div>
           <div class="col-sm">
-          <Form hideRequiredMark style={{ textAlign: 'left' }}>
+            <div className={styles.root_main}>
+              <Form hideRequiredMark style={{ textAlign: 'left' }}>
+                {/* 用户名 */}
+                <FormItem
+                >
+                  {form.getFieldDecorator('username', {
+                    rules: [
+                      { required: true},
+                      {
+                        max: 50,
+                        message: '最大不超过50',
+                      },
+                    ],
+                    validateTrigger: 'onChange',
+                  })(
+                    <Input
+                      autocomplete="off"
+                      placeholder="用户名"
+                    />
+                  )}
+                </FormItem>
 
-            {/* 用户名 */}
-            <FormItem
-              layout="inline"
-              label="用户名"
-            >
-              {form.getFieldDecorator('username', {
-                rules: [
-                  { required: true},
-                  {
-                    max: 50,
-                    message: '最大不超过50',
-                  },
-                ],
-                validateTrigger: 'onBlur',
-              })(
-                <Input
-                  autocomplete="off"
-                  placeholder="用户名"
-                />
-              )}
-            </FormItem>
-          </Form>
+                {/* 密码 */}
+                <FormItem
+                >
+                  {form.getFieldDecorator('password', {
+                    rules: [
+                      { required: true},
+                      {
+                        max: 50,
+                        message: '最大不超过50',
+                      },
+                    ],
+                    validateTrigger: 'onChange',
+                  })(
+                    <Input
+                      autocomplete="off"
+                      placeholder="密码"
+                    />
+                  )}
+                </FormItem>
+
+                {/* 密码 */}
+                <FormItem>
+                  <RButton onClick={this.submit}>登陆</RButton>
+                </FormItem>
+              </Form>
+            </div>
           </div>
         </div>
       </div>
