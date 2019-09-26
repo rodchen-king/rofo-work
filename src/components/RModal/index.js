@@ -32,12 +32,15 @@ class RModal extends React.Component {
 
   onClicClosePopoverModal = () => {
     const { onCancel } = this.props;
-    this.removeChild();
     onCancel();
   }
 
+  componentWillUnmount() {
+    this.removeChild();
+  }
+
   render() {
-    const { title, visible} = this.props;
+    const { title, visible, onOk} = this.props;
 
     if (!visible) {
       return '';
@@ -66,7 +69,7 @@ class RModal extends React.Component {
         </div>
         <div className={styles.rmodal_footer}>
           <RButton onClick={this.onClicClosePopoverModal} shape="circle">取消</RButton> &nbsp;&nbsp;
-          <RButton type="primary" shape="circle">确定</RButton>
+          <RButton onClick={onOk} type="primary" shape="circle">确定</RButton>
         </div>
       </div>,
       this.el,
