@@ -9,6 +9,7 @@
  */
 
 import React, { PureComponent } from 'react';
+import moment from 'moment';
 
 // css & img
 import styles from './index.module.less';
@@ -41,6 +42,12 @@ class Share extends PureComponent {
   /* -------------------------------------------- 生命周期函数 -------------------------------------------- */
 
   componentDidMount() {
+    this.loadData();
+  }
+
+  /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
+
+  loadData = () => {
     getSharesAction()
       .then(res => {
         if (res.code === 200) {
@@ -51,9 +58,6 @@ class Share extends PureComponent {
       })
   }
 
-  /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
-
-
   /* -------------------------------------------- 纯函数组件 ------------------------------------------------- */
 
 
@@ -61,10 +65,16 @@ class Share extends PureComponent {
 
 
   /* -------------------------------------------- Popover内容相关代码 ------------------------------------- */
+
   handleModalPopover = (flag) => {
     this.setState({
       modalVisible: !!flag
     })
+  }
+
+  handlerModalCallback = () => {
+    this.handleModalPopover(false);
+    this.loadData();
   }
 
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
@@ -109,12 +119,12 @@ class Share extends PureComponent {
               </tr>
             </thead>
             <tbody>
-              {shareList.map(item => 
+              {shareList.map((item, index) => 
                 <tr key={item.id}>
-                  <th width="50" scope="col">{item.id}</th>
+                  <th width="50" scope="col">{index + 1}</th>
                   <th width="150" scope="col">{item.title}</th>
                   <th width="100" scope="col">{item.author}</th>
-                  <th width="150" scope="col">{item.share_date}</th>
+                  <th width="150" scope="col">{item.share_date ? moment(item.share_date).format('YYYY-MM-DD HH:mm:ss') : ''}</th>
                 </tr>
               )}
             </tbody>
@@ -122,11 +132,11 @@ class Share extends PureComponent {
         </div>
       
         {/* modal内容 */}
-        <Create 
+        {modalVisible && <Create 
           visible={modalVisible}
+          callBack={this.handlerModalCallback}
           handleModalPopover={this.handleModalPopover}
-
-        />
+        />}
       </div>
     );
   }

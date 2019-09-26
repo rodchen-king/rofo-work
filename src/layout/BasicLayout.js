@@ -13,6 +13,7 @@ class BasicLayout extends React.Component {
     this.state = {
       auth : false,     // 表示是否认证通过
       hasAuthed: false,  // 表示是否向服务器发送过认证请求
+      userInfo: {}
     };
   }
   
@@ -20,9 +21,15 @@ class BasicLayout extends React.Component {
     if (!localStorage.getItem('userInfo')) {
       window.location.href = '/user';
     }
+
+    this.setState({
+      userInfo: JSON.parse(localStorage.getItem('userInfo'))
+    })
   }
   
   render () {
+    const { userInfo } = this.state;
+
     return (
       <div className="app">
         <div className="main">
@@ -32,10 +39,10 @@ class BasicLayout extends React.Component {
               <div className="aside_top">
                 <img className="rounded-circle" src={personIcon} alt="" />
                 <p className="aside_top_name">
-                  陈子龙
+                  {userInfo.name}
                 </p>
                 <p>
-                  rodchen_king@outlook.com
+                  {userInfo.email}
                 </p>
               </div>
               <div className="aside_middle">

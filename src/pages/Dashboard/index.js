@@ -36,9 +36,6 @@ class Dashboard extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      mainCategody: {
-
-      }
     };
   }
 
@@ -66,7 +63,6 @@ class Dashboard extends PureComponent {
   /* -------------------------------------------- 渲染函数 ------------------------------------------------  */
 
   render() {
-
     return (
       <div className={styles.root}>
         {/* 搜索行内容 */}

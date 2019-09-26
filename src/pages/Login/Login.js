@@ -48,7 +48,6 @@ class Login extends PureComponent {
           }
         })
         .catch(err => {
-          debugger
         })
     });
   }
