@@ -20,34 +20,54 @@ class Login extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      isLogfailed: false,
+      loading: false
     };
   }
 
   submit = () => {
-    const { form, handleAdd } = this.props;
-
+    const { form } = this.props;
+    this.setState({
+      isLogfailed: false,
+      loading: true
+    })
     form.validateFields((err, fieldsValue) => {
       if (err) return;
-
       loginAction(fieldsValue)
+        .then(res => {
+          this.setState({
+            loading: false
+          })
+          if (res.code === 200 && res.data.length > 0) {
+            localStorage.setItem('userInfo', JSON.stringify(res.data[0]))
+            window.location.href = '/';
+          } else {
+            this.setState({
+              isLogfailed: true
+            })
+          }
+        })
+        .catch(err => {
+          debugger
+        })
     });
   }
 
   render() {
     const { form } = this.props;
+    const { isLogfailed, loading } = this.state;
 
     return (
       <div className={styles.root}>
-        <div class="row">
-          <div class="col-sm">
-            <img src={logoIcon} alt="" />
+        <div className="row">
+          <div className="col-sm">
+            <img className={styles.root_img} src={logoIcon} alt="" />
           </div>
-          <div class="col-sm">
+          <div className="col-sm">
             <div className={styles.root_main}>
               <Form hideRequiredMark style={{ textAlign: 'left' }}>
                 {/* 用户名 */}
-                <FormItem
-                >
+                <FormItem>
                   {form.getFieldDecorator('username', {
                     rules: [
                       { required: true},
@@ -59,15 +79,14 @@ class Login extends PureComponent {
                     validateTrigger: 'onChange',
                   })(
                     <Input
-                      autocomplete="off"
+                      autoComplete="off"
                       placeholder="用户名"
                     />
                   )}
                 </FormItem>
 
                 {/* 密码 */}
-                <FormItem
-                >
+                <FormItem>
                   {form.getFieldDecorator('password', {
                     rules: [
                       { required: true},
@@ -79,17 +98,14 @@ class Login extends PureComponent {
                     validateTrigger: 'onChange',
                   })(
                     <Input
-                      autocomplete="off"
+                      autoComplete="off"
+                      type="password"
                       placeholder="密码"
                     />
                   )}
                 </FormItem>
-
-                {/* 密码 */}
-                <FormItem>
-                  <RButton onClick={this.submit}>登陆</RButton>
-                </FormItem>
               </Form>
+              <RButton loading={loading} onClick={this.submit}>登陆</RButton> <span className={styles.root_errorText}>{isLogfailed && '账号或者密码错误'}</span>
             </div>
           </div>
         </div>
