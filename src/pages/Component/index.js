@@ -57,10 +57,10 @@ class Component extends PureComponent {
       <div className={styles.root}>
         <div className={`${styles.root_header} ${!isExpand ? styles.root_header_hidden : ''}`}>
           <div className={`card ${!isExpand ? styles.card_hidden : ''}`}>
-            <div class="card-header">
+            <div className="card-header">
               组件开发
             </div>
-            <div class="list-group">
+            <div className="list-group">
               <button 
                 className={`list-group-item list-group-item-action ${activeItem === 'ShowTable' ? 'active' : ''}`}
                 onClick={() => {
@@ -76,10 +76,10 @@ class Component extends PureComponent {
           </div>
           <br />
           <div className={`card ${!isExpand ? styles.card_hidden : ''}`}>
-            <div class="card-header">
+            <div className="card-header">
               系统说明
             </div>
-            <div class="list-group">
+            <div className="list-group">
               <button
                 type="button"
                 onClick={() => {

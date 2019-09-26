@@ -38,7 +38,7 @@ class RButton extends React.Component {
     type && classNamesArray.push(`${styles[prefixCls + '-' + type ]}`);
     shape && classNamesArray.push(`${styles[prefixCls + '-' + shape ]}`);
     disabled && classNamesArray.push(`${styles[prefixCls + '-' + disabled ]}`);
-    loading && classNamesArray.push(`${styles[prefixCls + '-' + loading ]}`)
+    loading && classNamesArray.push(`${styles[prefixCls + '-loading']}`)
 
     return classNamesArray.join(' ');
   }
@@ -69,7 +69,7 @@ class RButton extends React.Component {
       <button style={style} onClick={onClick} className={this.getClassName()} type="button">
         <span disabled className={`${styles[prefixCls + '_span']}`}>
           <span>
-          {loading && <img src={(!type || type === 'dashed') ? colorLoadingIcon : whiteLoadingIcon} className="rotation" alt="loading" />}
+          {loading && <img src={(!type || type === 'dashed') ? colorLoadingIcon : whiteLoadingIcon} className={styles.rotation} alt="loading" />}
           </span>
           <span>
             {loading && <span>&nbsp;</span>} {children}
