@@ -1,0 +1,30 @@
+@import '~@/styles/variables';
+
+.root {
+	height: 300px;
+	width: 600px;
+	border-radius: 30px;
+	background: #fff;
+	margin: 0 auto;
+	
+	&_errorText {
+		color: red;
+		margin-left: 50px;
+	}
+
+	&_main {
+		padding: 70px 0;
+		position: relative;
+		left: -40px;
+	}
+  
+  &_img {
+		height: 300px;
+  }
+
+	:global {
+		.row {
+			height: 100%;
+		}
+	}
+}

@@ -31,7 +31,7 @@ instance.interceptors.request.use(
     const TOKEN = '1fd399bdd9774831baf555ae5979c66b'
     if(TOKEN){
       // 配置请求头 token
-      config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+      config.headers['Content-Type'] = 'application/json';
       config.headers['Authorization'] = TOKEN;
    }
     return config;
