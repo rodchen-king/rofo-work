@@ -17,7 +17,7 @@ class RModal extends React.Component {
   }
 
   componentDidMount () {
-    // this.appendChild();
+    this.appendChild();
   }
 
   appendChild = () => {
@@ -45,8 +45,6 @@ class RModal extends React.Component {
     if (!visible) {
       return '';
     }
-
-    this.appendChild();
 
     return ReactDOM.createPortal(
       <div className={styles.rmodal_content}>
