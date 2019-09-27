@@ -14,6 +14,7 @@ import Share from '@/pages/Share';
 import Notice from '@/pages/Notice';
 import Component from '@/pages/Component';
 import Soft from '@/pages/Soft';
+import Study from '@/pages/Study';
 
 export default [
     // user
@@ -72,6 +73,13 @@ export default [
 					name: 'record',
 					icon: recordIcon,
           component: Share
+        },
+        {
+          path: '/study',
+          title: 'study',
+					name: 'study',
+					icon: recordIcon,
+          component: Study
         }
       ]   
     }
