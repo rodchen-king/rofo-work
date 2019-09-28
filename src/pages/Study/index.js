@@ -24,8 +24,8 @@ class Study extends React.Component {
   /* -------------------------------------------- 数据处理方法 -------------------------------------------- */
 
   onClickTestRef = () => {
-    console.log(this.myRef);
-    console.log(this.child);
+    console.log(this.myRef.current);
+    // console.log(this.child);
   }
 
   /* -------------------------------------------- 纯函数组件 ------------------------------------------------- */
@@ -42,13 +42,19 @@ class Study extends React.Component {
 
   render() {
     console.log('父组件render');
+    debugger
     return (
       <div className={styles.root}>
-        <Child ref={this.myRef} onRef={this.onRef} />
+        <Child ref={this.myRef} />
+        {/* <RenderElement ref={this.myRef} /> */}
+        {/* <FancyButton ref={this.myRef}>Click me!</FancyButton>; */}
         <RButton onClick={this.onClickTestRef}>更新</RButton>
       </div>
     );
   }
 }
+
+const RenderElement = React.forwardRef((props, ref) => (<input type="text" placeholder="Hello World" ref={ref} />));
+
 
 export default Study;

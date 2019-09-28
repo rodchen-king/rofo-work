@@ -12,7 +12,7 @@ class Child extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'child'
+      name: 'child123'
     };
     console.info('子组件初始化');
     console.log('子组件contructor函数');
@@ -23,8 +23,8 @@ class Child extends React.Component {
 
   componentDidMount() {
     console.log('子组件componentDidMount');
-    const { onRef } = this.props;
-    onRef(this);
+    // const { onRef } = this.props;
+    // onRef(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -64,10 +64,11 @@ class Child extends React.Component {
 
   render() {
     console.log('子组件render');
-    return (
-      <div></div>
-    );
+    debugger
+    return <input type="text" placeholder="Hello World" ref={this.props.innerRef} />
   }
 }
 
-export default Child;
+export default React.forwardRef((props, ref) => <Child 
+  innerRef={ref} {...props}
+/>);
